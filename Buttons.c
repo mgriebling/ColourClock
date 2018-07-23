@@ -12,7 +12,7 @@ static BOOLEAN setPressed = FALSE, modePressed = FALSE;
 
 void Buttons_UpdateState(void) {
 	if (prevSet) {
-		if (SetButton == 0) 
+		if (SetButton == 0) {}
 	}
 }
 	

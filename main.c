@@ -17,27 +17,39 @@
 
 #define SO		LATAbits.LATA2
 
+//#define BITOUT(b)\
+//	asm("bsf	12,2");\
+//	if (b & 0x80) {\
+//        Nop();\
+//        Nop();\
+//        Nop();\
+//        Nop();\
+//        Nop();\
+//        Nop();\
+//        b <<= 1;\
+//		asm("bcf	12,2");\
+//	} else {\
+//		asm("bcf	12,2");\
+//        Nop();\
+//        Nop();\
+//        Nop();\
+//        Nop();\
+//        Nop();\
+//        Nop();\
+//        Nop();\
+//        Nop();\
+//        b <<= 1;\
+//	}
+
 #define BITOUT(b)\
 	asm("bsf	12,2");\
 	if (b & 0x80) {\
-        Nop();\
-        Nop();\
-        Nop();\
-        Nop();\
-        Nop();\
-        Nop();\
+        _delay(6);\
         b <<= 1;\
 		asm("bcf	12,2");\
 	} else {\
 		asm("bcf	12,2");\
-        Nop();\
-        Nop();\
-        Nop();\
-        Nop();\
-        Nop();\
-        Nop();\
-        Nop();\
-        Nop();\
+        _delay(8);\
         b <<= 1;\
 	}
 
